@@ -11,7 +11,7 @@ object Specification : Spek({
                 listOf(listOf("candy"), listOf("candy"))
             ).forEach { candyDistribution ->
                 it ("Example: $candyDistribution") {
-                    val response = trickOrTreat(candyDistribution.size, candyDistribution)
+                    val response = trickOrTreat(candyDistribution.size, CandyDistribution(candyDistribution))
                     assertThat(response).isEqualTo("Thank you, strange uncle!")
                 }
             }
@@ -24,7 +24,7 @@ object Specification : Spek({
                 listOf(listOf("candy"), listOf("candy"), listOf("candy"), listOf("candy", "candy"))
             ).forEach { candyDistribution ->
                 it("Example: $candyDistribution") {
-                    val response = trickOrTreat(candyDistribution.size, candyDistribution)
+                    val response = trickOrTreat(candyDistribution.size, CandyDistribution(candyDistribution))
                     assertThat(response).isEqualTo("Trick or treat!")
                 }
             }
@@ -32,8 +32,8 @@ object Specification : Spek({
     }
 })
 
-fun trickOrTreat(i: Int, candyDistribution: List<List<String>>) = when {
-    CandyDistribution(candyDistribution).isSatisfactory() -> "Trick or treat!"
+fun trickOrTreat(i: Int, candyDistribution: CandyDistribution) = when {
+    candyDistribution.isSatisfactory() -> "Trick or treat!"
     else -> "Thank you, strange uncle!"
 }
 
