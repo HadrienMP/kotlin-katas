@@ -20,7 +20,8 @@ object Specification : Spek({
             listOf(
                 listOf(listOf("candy", "candy"), listOf("candy")),
                 listOf(listOf("candy"), listOf("candy", "candy")),
-                listOf(listOf("candy"), listOf("candy"), listOf("candy", "candy"))
+                listOf(listOf("candy"), listOf("candy"), listOf("candy", "candy")),
+                listOf(listOf("candy"), listOf("candy"), listOf("candy"), listOf("candy", "candy"))
             ).forEach { candyDistribution ->
                 it("Example: $candyDistribution") {
                     val response = trickOrTreat(candyDistribution.size, candyDistribution)
@@ -33,6 +34,7 @@ object Specification : Spek({
 
 fun trickOrTreat(i: Int, listOf: List<List<String>>) = when {
     listOf[0].size != listOf[1].size -> "Trick or treat!"
+    listOf.size == 4 && listOf[0].size != listOf[3].size -> "Trick or treat!"
     listOf.size == 3 && listOf[0].size != listOf[2].size -> "Trick or treat!"
     else -> "Thank you, strange uncle!"
 }
