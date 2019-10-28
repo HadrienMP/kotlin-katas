@@ -7,7 +7,8 @@ import org.spekframework.spek2.style.specification.describe
 object Specification: Spek({
     describe("Kids") {
         it("Are satisfied when they get the same amount of candy") {
-            assertThat(trickOrTreat(2, listOf(listOf("candy"), listOf("candy")))).isEqualTo("Thank you, strange uncle!")
+            val response = trickOrTreat(2, listOf(listOf("candy"), listOf("candy")))
+            assertThat(response).isEqualTo("Thank you, strange uncle!")
         }
     }
 })
