@@ -6,9 +6,15 @@ import org.spekframework.spek2.style.specification.describe
 
 object Specification : Spek({
     describe("Kids") {
-        it("Are satisfied when they get the same amount of candy") {
-            val response = trickOrTreat(2, listOf(listOf("candy"), listOf("candy")))
-            assertThat(response).isEqualTo("Thank you, strange uncle!")
+        describe("Are satisfied when they get the same amount of candy") {
+            listOf(
+                listOf(listOf("candy"), listOf("candy"))
+            ).forEach { candyDistribution ->
+                it ("Example: $candyDistribution") {
+                    val response = trickOrTreat(candyDistribution.size, candyDistribution)
+                    assertThat(response).isEqualTo("Thank you, strange uncle!")
+                }
+            }
         }
         describe("Are not satisfied when they don't get the same number of candy") {
             listOf(
