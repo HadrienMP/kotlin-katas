@@ -32,9 +32,10 @@ object Specification : Spek({
     }
 })
 
-fun trickOrTreat(i: Int, listOf: List<List<String>>) = when {
-    listOf[0].size != listOf[1].size -> "Trick or treat!"
-    listOf.size == 4 && listOf[0].size != listOf[3].size -> "Trick or treat!"
-    listOf.size == 3 && listOf[0].size != listOf[2].size -> "Trick or treat!"
+fun trickOrTreat(i: Int, candyDistribution: List<List<String>>) = when {
+    isSatisfactory(candyDistribution) -> "Trick or treat!"
     else -> "Thank you, strange uncle!"
 }
+
+private fun isSatisfactory(listOf: List<List<String>>) =
+    (listOf[0].size != listOf[1].size) || (listOf.size == 4 && listOf[0].size != listOf[3].size) || (listOf.size == 3 && listOf[0].size != listOf[2].size)
