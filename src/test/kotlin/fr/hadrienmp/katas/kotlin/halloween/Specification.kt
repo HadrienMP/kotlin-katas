@@ -13,4 +13,4 @@ object Specification: Spek({
     }
 })
 
-fun trickOrTreat(i: Int, listOf: List<List<String>>) = "Thank you, strange uncle!"
+fun trickOrTreat(i: Int, listOf: List<List<String>>) = when { else -> "Thank you, strange uncle!" }
