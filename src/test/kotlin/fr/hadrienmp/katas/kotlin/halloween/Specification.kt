@@ -16,7 +16,7 @@ object Specification : Spek({
                 listOf(listOf("candy"), listOf("candy", "candy"))
             ).forEach { candyDistribution ->
                 it("Example: $candyDistribution") {
-                    val response = trickOrTreat(2, candyDistribution)
+                    val response = trickOrTreat(candyDistribution.size, candyDistribution)
                     assertThat(response).isEqualTo("Trick or treat!")
                 }
             }
