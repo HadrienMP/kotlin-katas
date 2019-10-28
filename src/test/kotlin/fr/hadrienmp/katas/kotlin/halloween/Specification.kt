@@ -25,7 +25,6 @@ object Specification : Spek({
 })
 
 fun trickOrTreat(i: Int, listOf: List<List<String>>) = when {
-    listOf[0].size > listOf[1].size -> "Trick or treat!"
-    listOf[1].size > listOf[0].size -> "Trick or treat!"
+    listOf[0].size != listOf[1].size -> "Trick or treat!"
     else -> "Thank you, strange uncle!"
 }
