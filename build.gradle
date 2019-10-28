@@ -16,6 +16,8 @@ dependencies {
 
     // spek requires kotlin-reflect, can be omitted if already in the classpath
     testRuntimeOnly "org.jetbrains.kotlin:kotlin-reflect:1.3.50"
+
+    testCompile('org.assertj:assertj-core:3.13.2')
 }
 
 // setup the test task
