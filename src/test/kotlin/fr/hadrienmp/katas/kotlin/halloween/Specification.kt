@@ -10,9 +10,13 @@ object Specification : Spek({
             val response = trickOrTreat(2, listOf(listOf("candy"), listOf("candy")))
             assertThat(response).isEqualTo("Thank you, strange uncle!")
         }
-        it("Are not satisfied when they get a different amount of candy") {
-            val response = trickOrTreat(2, listOf(listOf("candy", "candy"), listOf("candy")))
-            assertThat(response).isEqualTo("Trick or treat!")
+        listOf(
+            listOf(listOf("candy", "candy"), listOf("candy"))
+        ).forEach { candyDistribution ->
+            it("Are not satisfied when they don't get the same number of candy") {
+                val response = trickOrTreat(2, candyDistribution)
+                assertThat(response).isEqualTo("Trick or treat!")
+            }
         }
     }
 })
