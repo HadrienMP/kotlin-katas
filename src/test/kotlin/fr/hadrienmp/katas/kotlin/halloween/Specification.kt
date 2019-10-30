@@ -35,18 +35,19 @@ object Specification : Spek({
 })
 
 fun trickOrTreat(i: Int, candyDistribution: CandyDistribution) = when {
-    candyDistribution.isSatisfactory() -> "Thank you, strange uncle!"
+    isSatisfactory(candyDistribution.candyDistribution) -> "Thank you, strange uncle!"
     else -> "Trick or treat!"
 }
 
-class CandyDistribution(private val candyDistribution: List<List<String>>) {
-    fun isSatisfactory() = when {
-        candyDistribution.size > 3 -> candyDistribution[0].size == candyDistribution[1].size
-                && candyDistribution[0].size == candyDistribution[2].size
-                && candyDistribution[0].size == candyDistribution[candyDistribution.size - 1].size
-        candyDistribution.size > 2 -> candyDistribution[0].size == candyDistribution[1].size
-                && candyDistribution[0].size == candyDistribution[candyDistribution.size - 1].size
-        else -> candyDistribution[0].size == candyDistribution[candyDistribution.size - 1].size
-    }
+class CandyDistribution(val candyDistribution: List<List<String>>) {
 
+}
+
+fun isSatisfactory(list: List<List<String>>) = when {
+    list.size > 3 -> list[0].size == list[1].size
+            && list[0].size == list[2].size
+            && list[0].size == list[list.size - 1].size
+    list.size > 2 -> list[0].size == list[1].size
+            && list[0].size == list[list.size - 1].size
+    else -> list[0].size == list[list.size - 1].size
 }
