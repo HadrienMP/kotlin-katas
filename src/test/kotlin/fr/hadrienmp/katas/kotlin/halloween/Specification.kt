@@ -34,12 +34,12 @@ object Specification : Spek({
 })
 
 fun trickOrTreat(i: Int, candyDistribution: CandyDistribution) = when {
-    candyDistribution.asfag() -> "Thank you, strange uncle!"
+    candyDistribution.isSatisfactory() -> "Thank you, strange uncle!"
     else -> "Trick or treat!"
 }
 
 class CandyDistribution(private val candyDistribution: List<List<String>>) {
-    fun asfag() =
+    fun isSatisfactory() =
         candyDistribution[0].size == candyDistribution[candyDistribution.size - 1].size
 
 }
