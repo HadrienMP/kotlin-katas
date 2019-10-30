@@ -39,7 +39,8 @@ fun trickOrTreat(i: Int, candyDistribution: CandyDistribution) = when {
 }
 
 class CandyDistribution(private val candyDistribution: List<List<String>>) {
-    fun isSatisfactory() =
-        candyDistribution[0].size == candyDistribution[candyDistribution.size - 1].size
+    fun isSatisfactory() = when {
+        else -> candyDistribution[0].size == candyDistribution[candyDistribution.size - 1].size
+    }
 
 }
