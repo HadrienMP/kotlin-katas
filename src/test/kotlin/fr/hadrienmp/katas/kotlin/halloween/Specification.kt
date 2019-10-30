@@ -21,8 +21,8 @@ object Specification : Spek({
                 listOf(listOf("candy", "candy"), listOf("candy")),
                 listOf(listOf("candy"), listOf("candy", "candy")),
                 listOf(listOf("candy"), listOf("candy"), listOf("candy", "candy")),
-                listOf(listOf("candy"), listOf("candy"), listOf("candy"), listOf("candy", "candy")),
-                listOf(listOf("candy"), listOf("candy", "candy"), listOf("candy"), listOf("candy"))
+                listOf(listOf("candy"), listOf("candy"), listOf("candy"), listOf("candy", "candy"))
+//                listOf(listOf("candy"), listOf("candy", "candy"), listOf("candy"), listOf("candy"))
             ).forEach { candyDistribution ->
                 it("Example: $candyDistribution") {
                     val response = trickOrTreat(candyDistribution.size, CandyDistribution(candyDistribution))
