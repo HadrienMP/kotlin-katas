@@ -49,5 +49,6 @@ fun isSatisfactory(list: List<List<String>>) = when {
             && list[0].size == list[list.size - 1].size
     list.size > 2 -> list[0].size == list[1].size
             && list[0].size == list[list.size - 1].size
+    list.isEmpty() -> true
     else -> list[0].size == list[list.size - 1].size
 }
