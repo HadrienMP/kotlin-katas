@@ -44,7 +44,8 @@ class CandyDistribution(private val candyDistribution: List<List<String>>) {
         candyDistribution.size > 3 -> candyDistribution[0].size == candyDistribution[1].size
                 && candyDistribution[0].size == candyDistribution[2].size
                 && candyDistribution[0].size == candyDistribution[candyDistribution.size - 1].size
-        candyDistribution.size > 2 -> candyDistribution[0].size == candyDistribution[1].size && candyDistribution[0].size == candyDistribution[candyDistribution.size - 1].size
+        candyDistribution.size > 2 -> candyDistribution[0].size == candyDistribution[1].size
+                && candyDistribution[0].size == candyDistribution[candyDistribution.size - 1].size
         else -> candyDistribution[0].size == candyDistribution[candyDistribution.size - 1].size
     }
 
