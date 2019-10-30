@@ -22,7 +22,8 @@ object Specification : Spek({
                 listOf(listOf("candy"), listOf("candy", "candy")),
                 listOf(listOf("candy"), listOf("candy"), listOf("candy", "candy")),
                 listOf(listOf("candy"), listOf("candy"), listOf("candy"), listOf("candy", "candy")),
-                listOf(listOf("candy"), listOf("candy", "candy"), listOf("candy"), listOf("candy"))
+                listOf(listOf("candy"), listOf("candy", "candy"), listOf("candy"), listOf("candy")),
+                listOf(listOf("candy"), listOf("candy"), listOf("candy", "candy"), listOf("candy"))
             ).forEach { candyDistribution ->
                 it("Example: $candyDistribution") {
                     val response = trickOrTreat(candyDistribution.size, CandyDistribution(candyDistribution))
@@ -40,6 +41,9 @@ fun trickOrTreat(i: Int, candyDistribution: CandyDistribution) = when {
 
 class CandyDistribution(private val candyDistribution: List<List<String>>) {
     fun isSatisfactory() = when {
+        candyDistribution.size > 3 -> candyDistribution[0].size == candyDistribution[1].size
+                && candyDistribution[0].size == candyDistribution[2].size
+                && candyDistribution[0].size == candyDistribution[candyDistribution.size - 1].size
         candyDistribution.size > 2 -> candyDistribution[0].size == candyDistribution[1].size && candyDistribution[0].size == candyDistribution[candyDistribution.size - 1].size
         else -> candyDistribution[0].size == candyDistribution[candyDistribution.size - 1].size
     }
