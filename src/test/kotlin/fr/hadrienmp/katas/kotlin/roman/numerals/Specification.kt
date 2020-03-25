@@ -34,7 +34,7 @@ object Specification : Spek({
             }
         }
 
-        it("4000 is unreachable") {
+        it("3999 is the highest number") {
             assertThatThrownBy { toRoman(4000) }
                 .isInstanceOf(IllegalArgumentException::class.java)
         }
