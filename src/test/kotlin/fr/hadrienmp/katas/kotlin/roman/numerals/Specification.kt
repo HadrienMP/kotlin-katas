@@ -20,7 +20,8 @@ object Specification : Spek({
             Pair(44, "XLIV"),
             Pair(50, "L"),
             Pair(77, "LXXVII"),
-            Pair(100, "C")
+            Pair(100, "C"),
+            Pair(90, "XC")
         ).forEach { (arabic, roman) ->
             it("$arabic is '$roman'") {
                 assertThat(toRoman(arabic)).isEqualTo(roman)
@@ -38,4 +39,5 @@ fun toRoman(arabicNumber: Int): String {
         .replace("XXXXX", "L")
         .replace("XXXX", "XL")
         .replace("LL", "C")
+        .replace("LXL", "XC")
 }
