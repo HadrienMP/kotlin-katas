@@ -27,7 +27,9 @@ object Specification : Spek({
             Pair(400, "CD"),
             Pair(500, "D"),
             Pair(900, "CM"),
-            Pair(1000, "M")
+            Pair(1000, "M"),
+            Pair(2018, "MMXVIII"),
+            Pair(3999, "MMMCMXCIX")
         ).forEach { (arabic, roman) ->
             it("$arabic is '$roman'") {
                 assertThat(toRoman(arabic)).isEqualTo(roman)
