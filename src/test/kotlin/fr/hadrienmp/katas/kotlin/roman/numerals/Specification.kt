@@ -1,8 +1,10 @@
 package fr.hadrienmp.katas.kotlin.roman.numerals
 
 import org.assertj.core.api.Assertions.assertThat
+import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.specification.describe
+import java.lang.IllegalArgumentException
 
 object Specification : Spek({
 
@@ -22,17 +24,28 @@ object Specification : Spek({
             Pair(77, "LXXVII"),
             Pair(100, "C"),
             Pair(90, "XC"),
+            Pair(400, "CD"),
             Pair(500, "D"),
-            Pair(400, "CD")
+            Pair(900, "CM"),
+            Pair(1000, "M")
         ).forEach { (arabic, roman) ->
             it("$arabic is '$roman'") {
                 assertThat(toRoman(arabic)).isEqualTo(roman)
             }
         }
+
+        it("4000 is unreachable") {
+            assertThatThrownBy { toRoman(4000) }
+                .isInstanceOf(IllegalArgumentException::class.java)
+        }
+
+
     }
 })
 
 fun toRoman(arabicNumber: Int): String {
+    if (arabicNumber > 3999) throw IllegalArgumentException()
+
     return "I".repeat(arabicNumber)
         .replace("IIIII", "V")
         .replace("IIII", "IV")
@@ -44,4 +57,6 @@ fun toRoman(arabicNumber: Int): String {
         .replace("LXL", "XC")
         .replace("CCCCC", "D")
         .replace("CCCC", "CD")
+        .replace("DD", "M")
+        .replace("DCD", "CM")
 }
