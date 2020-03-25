@@ -18,8 +18,6 @@ object Specification: Spek({
     }
 })
 
-fun toRoman(arabicNumber: Int) = when(arabicNumber) {
-    3 -> "III"
-    2 -> "II"
-    else -> "I"
+fun toRoman(arabicNumber: Int): String {
+    return "I".repeat(arabicNumber)
 }
