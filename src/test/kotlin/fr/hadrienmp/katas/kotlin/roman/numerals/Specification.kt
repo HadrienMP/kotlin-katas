@@ -14,7 +14,11 @@ object Specification : Spek({
             Pair(4, "IV"),
             Pair(5, "V"),
             Pair(6, "VI"),
+            Pair(9, "IX"),
             Pair(10, "X"),
+            Pair(40, "XL"),
+            Pair(44, "XLIV"),
+            Pair(50, "L"),
             Pair(50, "L")
         ).forEach { (arabic, roman) ->
             it("$arabic is '$roman'") {
@@ -29,5 +33,7 @@ fun toRoman(arabicNumber: Int): String {
         .replace("IIIII", "V")
         .replace("IIII", "IV")
         .replace("VV", "X")
+        .replace("VIV", "IX")
         .replace("XXXXX", "L")
+        .replace("XXXX", "XL")
 }
