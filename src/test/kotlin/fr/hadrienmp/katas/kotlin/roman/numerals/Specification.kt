@@ -10,7 +10,8 @@ object Specification : Spek({
         mapOf(
             Pair(1, "I"),
             Pair(2, "II"),
-            Pair(3, "III")
+            Pair(3, "III"),
+            Pair(5, "V")
         ).forEach { (arabic, roman) ->
             it("$arabic is '$roman'") {
                 assertThat(toRoman(arabic)).isEqualTo(roman)
@@ -20,5 +21,7 @@ object Specification : Spek({
 })
 
 fun toRoman(arabicNumber: Int): String {
-    return "I".repeat(arabicNumber)
+    val romanNumerals = "I".repeat(arabicNumber)
+    if ("IIIII".equals(romanNumerals)) return "V"
+    return romanNumerals
 }
