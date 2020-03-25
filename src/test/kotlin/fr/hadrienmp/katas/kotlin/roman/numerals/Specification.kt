@@ -6,8 +6,10 @@ import org.spekframework.spek2.style.specification.describe
 
 object Specification: Spek({
     describe("In Roman numeral ") {
-        it("1 is 'I'") {
-            assertThat(toRoman(1)).isEqualTo("I")
+        mapOf(Pair(1, "I")).forEach { (arabic, roman) ->
+            it("1 is 'I'") {
+                assertThat(toRoman(arabic)).isEqualTo(roman)
+            }
         }
         it("2 is 'II'") {
             assertThat(toRoman(2)).isEqualTo("II")
