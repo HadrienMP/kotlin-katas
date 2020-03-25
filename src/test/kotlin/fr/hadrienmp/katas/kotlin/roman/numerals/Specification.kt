@@ -5,7 +5,6 @@ import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.specification.describe
 
 object Specification: Spek({
-
     describe("In Roman numeral ") {
         it("1 is 'I'") {
             assertThat(toRoman(1)).isEqualTo("I")
@@ -17,7 +16,6 @@ object Specification: Spek({
             assertThat(toRoman(3)).isEqualTo("III")
         }
     }
-
 })
 
 fun toRoman(arabicNumber: Int) = when(arabicNumber) {
