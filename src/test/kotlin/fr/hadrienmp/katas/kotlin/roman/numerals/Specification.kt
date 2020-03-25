@@ -11,6 +11,7 @@ object Specification : Spek({
             Pair(1, "I"),
             Pair(2, "II"),
             Pair(3, "III"),
+            Pair(4, "IV"),
             Pair(5, "V"),
             Pair(6, "VI"),
             Pair(10, "X"),
@@ -26,6 +27,7 @@ object Specification : Spek({
 fun toRoman(arabicNumber: Int): String {
     return "I".repeat(arabicNumber)
         .replace("IIIII", "V")
+        .replace("IIII", "IV")
         .replace("VV", "X")
         .replace("XXXXX", "L")
 }
