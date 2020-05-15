@@ -25,8 +25,6 @@ object Core : Spek({
                     assertThat(markov(2, "Salut toi. Coucou Monsieur.", Random(seed.toLong()))).isEqualTo(expected)
                 }
             }
-        }
-        describe("For Multiple sentences") {
             mapOf(Pair(0, "Coucou"), Pair(4170, "Salut")).forEach { (seed, expected) ->
                 it("is the first word of one of the sentences") {
                     assertThat(markov(1, "Salut toi. Coucou Monsieur.", Random(seed.toLong()))).isEqualTo(expected)
@@ -39,5 +37,6 @@ object Core : Spek({
 fun markov(i: Int, s: String, random: Random): String {
     val sentences = s.split(".").map { it.trim() }.filter { it.isNotEmpty() }
     val nextInt = random.nextInt(sentences.size)
-    return (0 until i).joinToString(separator = " ") { sentences[nextInt].split(" ")[it] }
+    val words = sentences[nextInt].split(" ")
+    return words.subList(0, i).joinToString(separator = " ")
 }
