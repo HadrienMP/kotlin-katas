@@ -6,9 +6,13 @@ import org.spekframework.spek2.style.specification.describe
 
 object Core : Spek({
     describe("Hihi") {
-        it("jaja") {
-            assertThat(true).isTrue()
+        it("one word") {
+            assertThat(markov(1, "coucou")).isEqualTo("coucou")
         }
     }
 
 })
+
+fun markov(i: Int, s: String): String {
+    return "coucou"
+}
