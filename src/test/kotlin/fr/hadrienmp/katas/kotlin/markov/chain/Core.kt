@@ -16,13 +16,13 @@ object Core : Spek({
         it("is the first word for a single sentence") {
             assertThat(markov(1, "salut toi", Random())).isEqualTo("salut")
         }
-
-        it("two words") {
-            assertThat(markov(1, "Salut toi. Coucou Monsieur.", Random(0))).isEqualTo("Coucou")
-        }
-
-        it("two words") {
-            assertThat(markov(1, "Salut toi. Coucou Monsieur.", Random(4170))).isEqualTo("Salut")
+        describe("For Multiple sentences") {
+            it("is the first word of the second sentence") {
+                assertThat(markov(1, "Salut toi. Coucou Monsieur.", Random(0))).isEqualTo("Coucou")
+            }
+            it("is the first word of the first sentence") {
+                assertThat(markov(1, "Salut toi. Coucou Monsieur.", Random(4170))).isEqualTo("Salut")
+            }
         }
     }
 })
