@@ -17,11 +17,10 @@ object Core : Spek({
             assertThat(markov(1, "salut toi", Random())).isEqualTo("salut")
         }
         describe("For Multiple sentences") {
-            it("is the first word of the second sentence") {
-                assertThat(markov(1, "Salut toi. Coucou Monsieur.", Random(0))).isEqualTo("Coucou")
-            }
-            it("is the first word of the first sentence") {
-                assertThat(markov(1, "Salut toi. Coucou Monsieur.", Random(4170))).isEqualTo("Salut")
+            mapOf(Pair(0, "Coucou"), Pair(4170, "Salut")).forEach { (seed, expected) ->
+                it("is the first word of one of the sentences") {
+                    assertThat(markov(1, "Salut toi. Coucou Monsieur.", Random(seed.toLong()))).isEqualTo(expected)
+                }
             }
         }
     }
