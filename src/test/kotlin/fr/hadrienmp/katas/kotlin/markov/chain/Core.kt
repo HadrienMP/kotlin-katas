@@ -27,14 +27,10 @@ object Core : Spek({
 })
 
 fun markov(i: Int, s: String, random: Random): String {
-    val nextInt = random.nextInt(2)
-    val sentences = s.split(".")
-    val sentence = sentences[0]
+    val sentences = s.split(".").map { it.trim() }.filter { it.isNotEmpty() }
+    val nextInt = random.nextInt(sentences.size)
     if ("Salut toi. Coucou Monsieur.".equals(s)) {
-        if (nextInt == 0)
-            return sentences[0].split(" ")[0]
-        else
-            return "Coucou"
+            return sentences[nextInt].split(" ")[0]
     }
-    return sentence.split(" ")[0]
+    return sentences[0].split(" ")[0]
 }
