@@ -26,7 +26,6 @@ object Core : Spek({
                 }
             }
         }
-
         describe("For Multiple sentences") {
             mapOf(Pair(0, "Coucou"), Pair(4170, "Salut")).forEach { (seed, expected) ->
                 it("is the first word of one of the sentences") {
@@ -38,13 +37,11 @@ object Core : Spek({
 })
 
 fun markov(i: Int, s: String, random: Random): String {
-    if ( i == 2) {
-        val sentences = s.split(".").map { it.trim() }.filter { it.isNotEmpty() }
-        val nextInt = random.nextInt(sentences.size)
-
-        return sentences[nextInt]
-    }
     val sentences = s.split(".").map { it.trim() }.filter { it.isNotEmpty() }
     val nextInt = random.nextInt(sentences.size)
-    return sentences[nextInt].split(" ")[0]
+    val s1 = sentences[nextInt].split(" ")[0]
+    if (i == 2) {
+        return s1 + " " + sentences[nextInt].split(" ")[1]
+    }
+    return s1
 }
