@@ -39,9 +39,5 @@ object Core : Spek({
 fun markov(i: Int, s: String, random: Random): String {
     val sentences = s.split(".").map { it.trim() }.filter { it.isNotEmpty() }
     val nextInt = random.nextInt(sentences.size)
-    val s1 = sentences[nextInt].split(" ")[0]
-    if (i == 2) {
-        return s1 + " " + sentences[nextInt].split(" ")[1]
-    }
-    return s1
+    return (0 until i).joinToString(separator = " ") { sentences[nextInt].split(" ")[it] }
 }
