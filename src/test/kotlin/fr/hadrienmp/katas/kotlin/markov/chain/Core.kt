@@ -17,18 +17,20 @@ object Core : Spek({
             assertThat(markov(1, "salut toi", Random())).isEqualTo("salut")
         }
 
-        it("two words") {
-            assertThat(markov(1, "Salut toi. Coucou Monsieur.", Random())).isEqualTo("Coucou")
+        (0..9000).forEach {
+            it("two words - $it") {
+                assertThat(markov(1, "Salut toi. Coucou Monsieur.", Random(it))).isEqualTo("Coucou")
+            }
         }
         it("two words") {
-            assertThat(markov(1, "Salut toi. Coucou Monsieur.", Random())).isEqualTo("Salut")
+            assertThat(markov(1, "Salut toi. Coucou Monsieur.", Random(0))).isEqualTo("Salut")
         }
     }
 
 })
 
 fun markov(i: Int, s: String, random: Random): String {
-    val nextInt = random.nextInt(1)
+    val nextInt = random.nextInt(2)
 
     if("Salut toi. Coucou Monsieur.".equals(s)){
         if(nextInt == 0)
