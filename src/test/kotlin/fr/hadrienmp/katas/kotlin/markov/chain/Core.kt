@@ -31,6 +31,9 @@ object Core : Spek({
                 }
             }
         }
+        it("test qui casse"){
+            assertThat(markov(2, "Coucou toi. Coucou Monsieur.", Random(4170))).isEqualTo("Coucou Monsieur")
+        }
     }
 })
 
